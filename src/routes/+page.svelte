@@ -6,20 +6,20 @@
 	import { onMount } from "svelte";
 	import Chart, { type ChartConfiguration, type ChartData } from 'chart.js/auto';
 
-	let initialAmount: number = 0;
-	let monthlySavings: number = 0;
-	let years: number = 0;
-	let annualReturn: number = 0;
+	let initialAmount: number = 100000;
+	let monthlySavings: number = 5000;
+	let years: number = 30;
+	let annualReturn: number = 7;
 	let chart: Chart | null = null;
 
 	const data: ChartData = {
-		labels: ['Input 1', 'Input 2', 'Input 3', 'Input 4'],
+		labels: ['years'],
     	datasets: [
 			{
 				label: 'Ränta på ränta kalkylator',
 				data: [initialAmount, monthlySavings, years, annualReturn],
-				backgroundColor: 'rgba(75, 192, 192, 0.2)',
-				borderColor: 'rgba(75, 192, 192, 1)',
+				backgroundColor: '#2A9D3F',
+				borderColor: 'rgba(0, 0, 0, 0)',
 				borderWidth: 1
 			}
     	]
@@ -38,7 +38,7 @@
 	};
 
 	const calculateCompoundInterest = (): number[] => {
-		const months = years * 12;
+		const months = years
 		const monthlyReturn = annualReturn / 12 / 100;
 		const balance: number[] = [];
 		let total = initialAmount;
@@ -96,14 +96,26 @@
 	<h1>Ränta på ränta kalkylator</h1>
 
 	<div class="chart-container">
-		<canvas id="myChart" ></canvas>
+		<canvas class="canvas" id="myChart" ></canvas>
 	</div>
 
-	<div>
-		<input type="number" bind:value={initialAmount} on:input={updateChart} placeholder="input 1">
-		<input type="number" bind:value={monthlySavings} on:input={updateChart} placeholder="input 2">
-		<input type="number" bind:value={years} on:input={updateChart} placeholder="input 3">
-		<input type="number" bind:value={annualReturn} on:input={updateChart} placeholder="input 4">
+	<div class="input-container">
+		<div>
+			<label for="initialAmount">initialAmount</label>
+			<input type="number" id="initialAmount" bind:value={initialAmount} on:input={updateChart} placeholder="input 1">
+		</div>
+		<div>
+			<label for="monthlySavings">monthlySavings</label>
+			<input type="number" id="monthlySavings" bind:value={monthlySavings} on:input={updateChart} placeholder="input 2">
+		</div>
+		<div>
+			<label for="years">years</label>
+			<input type="number" id="years" bind:value={years} on:input={updateChart} placeholder="input 3">
+		</div>
+		<div>
+			<label for="annualReturn">annualReturn</label>
+			<input type="number" id="annualReturn" step="0.1" bind:value={annualReturn} on:input={updateChart} placeholder="input 4">
+		</div>
 	</div>
 </section>
 
@@ -137,8 +149,21 @@
 	}
 
 	.chart-container {
-		width: 500px;
-		height: 500px;
-		margin: auto;
+		width: 1200px;
+		height: 600px;
+
 	}
+
+	/* .canvas {
+		width: 800px;
+		height: 800px;
+	}	 */
+
+	.input-container {
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+		margin-bottom: 20px;
+	}
+	
 </style>
