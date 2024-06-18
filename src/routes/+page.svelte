@@ -6,10 +6,10 @@
 	import { onMount } from "svelte";
 	import Chart, { type ChartConfiguration, type ChartData } from 'chart.js/auto';
 
-	let initialAmount: number = 100000;
-	let monthlySavings: number = 5000;
-	let years: number = 30;
-	let annualReturn: number = 7;
+	let initialAmount: number = 0;
+	let monthlySavings: number = 0;
+	let years: number = 0;
+	let annualReturn: number = 0;
 	let chart: Chart | null = null;
 
 	const data: ChartData = {
@@ -38,7 +38,7 @@
 	};
 
 	const calculateCompoundInterest = (): number[] => {
-		const months = years
+		const months = years * 12;
 		const monthlyReturn = annualReturn / 12 / 100;
 		const balance: number[] = [];
 		let total = initialAmount;
