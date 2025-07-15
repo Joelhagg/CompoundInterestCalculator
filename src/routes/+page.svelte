@@ -239,13 +239,42 @@ button {
 }
 
 @media (max-width: 600px) {
-    .header { font-size: 1.5rem; }
-    .chart-outer { padding-left: 0.5rem; padding-right: 0.5rem; }
-    .chart-container { min-width: 0; border-radius: 8px; }
-    input { width: 100px; height: 40px; font-size: 1rem; }
-    .return-info { font-size: 0.75rem; }
-    .input-container { font-size: 0.75rem; }
-    button { font-size: 0.75rem; padding: 0.25rem 0.5rem; margin: 0.5rem 0; }
+
+	h1 {
+		height: auto;
+		font-size: 1.5rem;
+	}
+	.chart-outer {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
+	.chart-container {
+		min-width: 0;
+		border-radius: 8px;
+	}
+	.return-info {
+		margin-bottom: 0.5rem;
+		font-size: 0.75rem;
+	}
+	.input-container {
+		font-size: 0.75rem;
+		width: 150px;
+		gap: 0.25rem;
+	}
+	/* .input-wrapper {
+
+	} */
+
+	input {
+		width: 100px;
+		height: 30px;
+		font-size: 1rem;
+	}
+
+	button {
+		font-size: 0.875rem;
+		padding: 0.25rem 0.5rem;
+		margin: 0.5rem 0;}
 }
 
 </style>
