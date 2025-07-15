@@ -27,5 +27,8 @@
     "@tsconfig/svelte": "^5.0.4",
     "chart.js": "^4.4.3",
     "svelte-preprocess": "^6.0.0"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
